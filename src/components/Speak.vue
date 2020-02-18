@@ -5,7 +5,7 @@
     <br />
     <form @submit="speakText" id="speech-form" v-show="speech.hasBrowserSupport() && !error">
       <textarea v-model="tts" placeholder="Add Text..." />
-      <input type="submit" value="Submit" />
+      <input type="submit" value="Speak" />
       <label for="voice">Voice:&nbsp;</label>
       <select id="voice" v-model="voice" @change="changeVoice">
         <option value selected disabled>Select a Voice...</option>
