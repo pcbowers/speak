@@ -6,17 +6,17 @@
     <form @submit="speakText" id="speech-form" v-show="speech.hasBrowserSupport() && !error">
       <textarea v-model="tts" placeholder="Add Text..." />
       <input type="submit" value="Speak" />
-      <label for="voice">Voice:&nbsp;</label>
+      <label for="voice">Voice:</label>
       <select id="voice" v-model="voice" @change="changeVoice">
         <option value selected disabled>Select a Voice...</option>
         <option v-bind:key="voice" v-for="voice in voices">{{voice}}</option>
       </select>
-      <label v-if="!voice" for="lang">Language:&nbsp;</label>
+      <label v-if="!voice" for="lang">Language:</label>
       <select v-if="!voice" id="lang" v-model="lang" @change="changeLang">
         <option value selected disabled>Selecte a Language...</option>
         <option v-bind:key="lang" v-for="lang in langs">{{lang}}</option>
       </select>
-      <label for="vol">Volume:&nbsp;</label>
+      <label for="vol">Volume ({{vol}}):</label>
       <input
         type="range"
         max="1"
@@ -27,7 +27,7 @@
         @change="changeVol"
         id="vol"
       />
-      <label for="pitch">Pitch:&nbsp;</label>
+      <label for="pitch">Pitch ({{pitch}}):</label>
       <input
         type="range"
         max="2"
@@ -38,7 +38,7 @@
         @change="changePitch"
         id="pitch"
       />
-      <label for="rate">Rate:&nbsp;</label>
+      <label for="rate">Rate ({{rate}}):&nbsp;</label>
       <input
         type="range"
         max="10"
@@ -51,7 +51,7 @@
       />
       <br />
       <br />
-      <input v-show="speaking" type="button" v-model="pausePlay" @click="togglePause" />&nbsp;
+      <input v-show="speaking" type="button" v-model="pausePlay" @click="togglePause" />
       <input v-show="speaking" type="button" value="Cancel" @click="cancelSpeech" />
     </form>
     <p v-show="!speech.hasBrowserSupport()">Your browser does not support Text-To-Speech</p>
